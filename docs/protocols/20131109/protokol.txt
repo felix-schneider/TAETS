@@ -11,3 +11,5 @@ anwesend: Lukas, David, Jonas, Felix, Daniel
 -Protokolle in LaTeX
 -Projektname: TAETS (The amazing Encoding Test Suite)
 -Projektstruktur: /docs, 
+
+What do we do with dead chemists? We Barium.
