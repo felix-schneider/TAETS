@@ -1,2 +1,257 @@
 \section{Funktionale Anforderungen}
 
+\newcounter{specnum}
+\newenvironment{speclist}[1][]{
+	\begin{description}
+	\newcommand{\spec}{\item[/#1\arabic{specnum}/] \addtocounter{specnum}{10}}
+	\newcommand{\optspec}{\item[{[opt]} /#1\arabic{specnum}/] \addtocounter{specnum}{10}}
+}{
+	\end{description}
+}
+
+\subsection{Entwurf des Testlaufs}
+
+\begin{speclist}[F]
+\setcounter{specnum}{11010}
+
+\spec Graph-basierter Entwurf \\
+Der Benutzer soll einen Testlauf durch einen azyklischen Graphen definieren können. Er verbindet dafür mehrere Knoten miteinander.
+
+\spec Knoten \\
+Ein Knoten ist eine kleine Recheneinheit, die Eingabeparameter verrechnet und Ausgabe produziert. Ein Knoten hat einen oder mehrere Ein- bzw. Ausgabestecker.
+
+\spec Graphstecker \\
+Ein Graphstecker ist der Teil der Schnittstelle eines Knoten, die Daten aufnimmt bzw. Daten ausgibt. Graphstecker haben einen festen Typ.
+
+\spec Typen von Graphsteckern
+\begin{itemize}
+	\item Fließkommazahl
+	\item YUV-Bild
+\end{itemize}
+
+\spec Verbindung zwischen Graphsteckern \\
+Graphstecker können miteinander verbunden werden. Eine Verbindung kann nur zwischen Steckern gleichen Typs stattfinden.
+
+\end{speclist}
+
+\subsection{Knoten des Graphen}
+
+\subsubsection{Eingabeknoten}
+Eingabeknoten haben nur Zahlen als Eingabestecker und Bilder als Ausgabestecker.
+
+\begin{speclist}[F]
+\setcounter{specnum}{21010}
+
+\spec YUV-Video Streams \\
+Es können unkomprimierte YUV-Video Streams gelesen werden. Der Start-Frame ("`Offset"') und die Anzahl der ausgelesenen Frames ("`Länge"') sind statisch (pro Testdurchlauf, also keine Eingabestecker) veränderbar.
+
+\spec Generatoren \\
+Es können YUV-Bilder prozedual generiert werden. Dazu stehen mehrere Algorithmen zur Verfügung:
+\begin{itemize}
+	\item Einfarbig
+	\item Rauschen
+\end{itemize}
+Die Eingabeparameter der Generatoren können durch den Graph variiert werden.
+
+\optspec Einlesen von verbreiteten Videoformaten \\
+Es können weit verbreitete Videoformate, wie MPEG oder H.264 eingelesen werden. Auch hier können der Offset und die Länge variiert werden.
+
+\optspec Einlesen von Videos mit anderer Framerate \\
+Es können auch Videos mit anderen Framerates als der des Graphen gelesen werden. Diese werden vor der Ausgabe umgerechnet.
+
+\end{speclist}
+
+\subsubsection{Modifikatoren}
+Modifikatoren verändern Bilder. Sie machen Vor- bzw. Nachberechnungen der Testdaten.
+
+\begin{speclist}[F]
+\setcounter{specnum}{22010}
+
+\item Helligkeit und Kontrast \\
+Grundlegender Modifikator mit zwei Eingabezahlen.
+
+\spec Grundlegende Bildkombination \\
+Bildkombinationen nehmen zwei Eingabebilder und eine Zahl und geben ein kombiniertes Bild aus. Es stehen folgende grundlegende Bildkombinationsmethoden zur Verfügung:
+\begin{itemize}
+	\item Addition
+	\item Subtraktion
+	\item Mix
+\end{itemize}
+
+\spec Scharfzeichner \\
+Ein Knoten zum Anwenden eines Scharfzeichenalgorithmus auf ein Bild. Folgende Algorithmen stehen zur Verfügung:
+\begin{itemize}
+	\item Unscharfmaskierung (https://de.wikipedia.org/wiki/Unscharfmaskierung)
+	\item Laplace-Filter (https://de.wikipedia.org/wiki/Laplace-Filter)
+\end{itemize}
+
+\spec Weichzeichner \\
+Ein Knoten zum Anwenden eines Weichzeichenalgorithmus auf ein Bild. Folgende Algorithmen stehen zur Verfügung:
+\begin{itemize}
+	\item Lineares Weichzeichnes
+	\item Gaussches Weichzeichnen
+\end{itemize}
+
+\optspec Verkleinern \\
+Folgende Verkleinerungsalgorithmen stehen zur Verfügung:
+\begin{itemize}
+	\item Nächster Pixel
+	\item Lineare Interpolation
+\end{itemize}
+
+\optspec Vergrößern \\
+Folgende einfache Vergrößerungsalgorithmen stehen zur Verfügung:
+\begin{itemize}
+	\item Nächster Pixel
+	\item Lineare Interpolation
+\end{itemize}
+
+\optspec Resampling \\
+Komplexer Vergrößerungsalgorithms mit besseren Ergebnissen.
+
+\optspec Zeit-Variierte Zahlen \\
+Knoten, der Zahlenwerte generiert, die sich im Laufe der Videozeit ändern. Folgende Methoden stehen zur verfügung:
+\begin{itemize}
+	\item Linear
+	\item Mathematische Funktionen (sinus, log, ...)
+	\item eventuell Bezier Kurve
+\end{itemize}
+
+\optspec Matlab Integration \\
+Knoten, der Matlab-Programme kapselt und die Implementation eigener Modifikatoren erlaubt. Könnte auch der Basisknoten für fast alle anderen Modifikatoren sein.
+
+\end{speclist}
+
+\paragraph{Encoder-Modifikator}
+
+\begin{speclist}[F]
+
+\spec Encoderknoten \\
+Der Encoderknoten encodiert das eingehende Bild und gibt eine codierte Version aus. Hier findet der eigentliche Encodingprozess mit dem zu testenden Videoencoder statt.
+
+\optspec Metadaten während des Encodings \\
+Der Encoderknoten macht zusätzliche Ausgaben, die Metadaten während des Encodingprozesses darstellen. Diese sind:
+\begin{itemize}
+	\item Rechenzeit pro Frame
+	\item Bitrate
+	\item Codierungsmethoden der Blöcke
+\end{itemize}
+
+\end{speclist}
+
+\subsubsection{Ausgabeknoten}
+Es steht ein Ausgabeknoten zur Verfügung, der "`Inspektor"'.
+
+\begin{speclist}[F]
+\setcounter{specnum}{23010}
+
+\spec Inspektor \\
+Der Inspektorknoten greift Testdaten während der Berechnung ab und speichert diese für die spätere Auswertung.
+
+\end{speclist}
+
+\subsection{Analyse der Testdaten}
+
+\begin{speclist}[F]
+\setcounter{specnum}{31010}
+
+\spec Dialog für Inspektorknoten \\
+Nach einer Berechnung kann ein Dialog zu einem Inspektorknoten geöffnet werden. Hier werden die aufgezeichneten Datenreihen visualisiert und können analysiert werden.
+
+\spec Visualisierung von Zahlen \\
+Aufgezeichnete Zahlenwerte können pro Bild angezeigt werden.
+
+\spec Visualisierung von Zahlenreihen \\
+Die aufgezeichneten Zahlenreihen können in einem Diagramm angezeigt werden, um den zeitlichen Verlauf anzusehen. Es soll möglich sein, mehrere Zahlenreihen in ein einziges Diagramm zu laden.
+
+\spec Visualisierung von Bildern \\
+Einzelne berechnete Bilder können angezeigt werden.
+
+\spec Zusätzliche Bildinformationen \\
+Zu angezeigten Bildern können zusätzliche Informationen dargestellt werden:
+\begin{itemize}
+	\item Histogram
+	\item Farbraum
+\end{itemize}
+
+\spec Vergleich von Bildern \\
+Wenn der Inspektor mehrere Bilderreihen aufgenommen hat, sollen je zwei miteinander verglichen werden können. Folgende Methoden können verwendet werden:
+\begin{itemize}
+	\item "`Side-by-Side"' Anzeige
+	\item "`Scroll"'-Vergleich
+	\item Differenzbild
+	\item PSNR-Wert
+	\item Überlagerung Histogramme
+	\item Überlagerung Farbräume
+\end{itemize}
+
+\spec Visualisierung von Bildvergleichen \\
+Folgende Werte aus dem Bildvergleich können in einem zeitlichen Diagramm dargestellt werden:
+\begin{itemize}
+	\item PSNR-Wert
+	\item Differenz der Histogramme
+	\item (Differenz der Farbräume)
+\end{itemize}
+
+\spec Vergleich von mehr als zwei Bilderreihen \\
+Folgende Methoden können verwendet werden, um mehr als zwei Bilderreihen miteinander zu vergleichen:
+\begin{itemize}
+	\item "`Side-by-Side"' Anzeige
+	\item "`Scroll"'-Vergleich
+	\item Überlagerung Histogramme
+	\item Überlagerung Farbräume
+\end{itemize}
+
+\spec Anzeige von Bilderreihen als Video \\
+Die eingegangenen Bilderreihen sollen als Video abspielbar sein.
+
+\optspec Abspielen von Audio \\
+Zusätzlich zum Anzeigen des Videos kann auch ein angegebener Ausiostream abgespielt werden.
+
+\end{speclist}
+
+\subsection{Benutzeroberfläche}
+
+\begin{speclist}[F]
+\setcounter{specnum}{41010}
+
+\spec Graphübersicht \\
+Der Benutzer sieht eine grafische Übersicht des Graphen. Es werden Knoten, sowie deren Verbindungen angezeigt.
+
+\spec Knoten hinzufügen \\
+Der Benutzer kann neue Knoten hinzufügen.
+
+\spec Knoten entfernen \\
+Der Benutzer kann existierende Knoten entfernen. Abhängende Verbindungen werden auch entfernt.
+
+\spec Knoten verbinden \\
+Der Benutzer kann Knoten verbinden. Es wird ein Fehler angezeigt, wenn die Typen der Stecker nicht übereinstimmen.
+
+\spec Knoten einstellen \\
+Jeder Knoten hat spezielle Einstellungen. Diese können vom Benutzer verändert werden.
+
+\spec Projekt speichern \\
+Das Layout des Graphen, sowie alle Knoteneinstellungen und -verbindungen können in einer Projektdatei gespeichert werden.
+
+\spec Projekt laden \\
+Eine gespeicherte Projektdatei kann geladen werden.
+
+\spec Testlauf berechnen \\
+Es gibt einen Knopf, mit dem der Benutzer den Graphen berechnen kann. Zwischenergebnisse werden für Inspektoren temporär gespeichert.
+
+\spec Testlauf Ergebnisse speichern \\
+Die Ergebnisse eines berechneten Testlauf können für eine spätere Auswertung abgespeichert werden.
+
+\spec Testlauf Ergebnisse laden \\
+Zu einem Graphen dazugehörige Berechnungsergebnisse können geladen werden. Danach ist der Status des Programms der eines berechneten Testlaufes.
+
+\spec Rechenzeit anzeigen \\
+Beim Berechnen des Testlaufs wird für jeden Knoten aufgezeichnet, wie lange insgesamt gerechnet hat. Diese Rechenzeit kann sich der Benutzer anzeigen lassen.
+
+\optspec Parallele Berechnung \\
+Die Berechnung ist mehrfädig für maximale Geschwindigkeit.
+
+\optspec Hardwaregestützte Berechnungen \\
+Ausgewählte Knoten werden auf spezialisierter Hardware (Grafikkarte) berechnet.
+
+\end{speclist}
