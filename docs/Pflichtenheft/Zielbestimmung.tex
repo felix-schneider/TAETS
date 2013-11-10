@@ -1,2 +1,52 @@
 \section{Zielbestimmung}
 
+\subsection{Musskriterien}
+
+\begin{itemize}
+	\item Eingabe: 
+	\begin{itemize}
+		\item Einlesen von .yuv Dateien
+		\item Verwenden einer Farbe, eines Bildes
+		\item generiertes Noise
+	\end{itemize}
+	\item Modifikatoren:
+	\begin{itemize}
+		\item Encoder
+		\item Kombinieren / Differenz von Videos
+		\item Weich- und Scharfzeichner
+		\item Helligkeit und Kontrast
+	\item Bewerten:
+	\begin{itemize}
+		\item Verwenden von Inspektoren (Knoten)
+		\item Generierung eines Zeitdiagramms
+		\item Messung der Rechenzeit
+		\item Berechnen des PSNR
+		\item Berechnung des Histograms / Farbraums einzelner Frames des Videos
+	\end{itemize}
+	\item Ausgabe: Das ausgegebene Video kann gespeichert werden
+\end{itemize}
+
+\subsection{Sollkriterien}
+
+\begin{itemize}
+	\item Unterstützung anderer Kodierer
+	\item Integration mit Matlab
+	\item Metadaten auslesen (sowohl "Standart"Metadaten, wie auch welche, die nur von manchen ausgegeben werden)
+	\item Weitere Modifikatoren: Skalieren des Videos, Resampling
+	\item Implementierung von Zeitverschiebungsparametern
+\end{itemize}
+
+\subsection{Kannkriterien}
+
+\begin{itemize}
+	\item Unterstützung unterschiedlicher Framerates 
+	\item Hardwarebeschleunigung (z.B. CUDA)
+	\item Implementierung von Multithreading
+	\item Audiospur des Videos abspielen
+\end{itemize}
+
+\subsection{Abgrenzungskriterien}
+
+\begin{itemize}
+	\item Es ist für erweiterte Benutzer gedacht
+\end{itemize}
