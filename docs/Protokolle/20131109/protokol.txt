@@ -1,0 +1,15 @@
+anwesend: Lukas, David, Jonas, Felix, Daniel
+
+1. Organisation
+-Freitag 11:30 Infobau
+-Phaseneinteilung:
+	1. Planungsphase Daniel
+	2. Entwurfsphase David
+	3. Impl Lukas
+	4. Test Felix
+	5. End Jonas
+-Protokolle in LaTeX
+-Projektname: TAETS (The amazing Encoding Test Suite)
+-Projektstruktur: /docs, 
+
+What do we do with dead chemists? We Barium.

@@ -1,0 +1,73 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[parfill]{parskip}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\textbf{Nummer:} 2
+
+\textbf{Zeit:} 07.11.13, 14:00 bis 15:00
+
+\textbf{Anwesend:} Lukas (Protokollant), Felix, Daniel, David, Jonas, Sebastian
+
+\textbf{Nächstes Treffen:} 09.11.13, 12Uhr Infobau
+
+\section{Organisatorisches}
+
+Die Pflichtenheftphase geht 2 Wochen. Abgabe / Präsentation des Pflichtenhefts beim übernächsten Treffen (21.11.13).
+
+\section{Brainstorming}
+
+Viele, viele Ideen, siehe Grafik.
+
+Die wichtigsten Features sind:
+\begin{itemize}
+	\item Input: Generierung, Video laden aus YUV-Streams
+	\item Modifikation: Grundlegende Filter (Farbe, Scharf-/Weichzeichner), Encoding
+	\item Bewertung: Rechenzeit, Qualitätsverlust per PSNR, Zeitdiagramme von Kriterien
+\end{itemize}
+
+Wir bekommen eine Encoding/Decoding Bibliothek vom Institut. Die kann YUV-Stream lesen, sie encodieren und als YUV ausgeben.
+
+Die Architektur sollte so aufgebaut sein, dass wir uns nicht nur auf den Encoding-Prozess bschränken.
+
+Beim Besprechen von Features sollten wir uns Gedanken machen, ob und wie (mit wie viel Aufwand) sie umsetzbar sind.
+
+\section{Sonstiges}
+
+Der Freitag wird als PSE-Termin grundsätzlich frei gehalten. Wir brauchen die Zeit!
+
+Am Samstag legen wir endgültig fest, wer für welche Phase verantwortlich ist. Jeder hat genau eine Phase (=\textgreater jede Phase hat genau einen!).
+
+Von gibt es von Lukas eine kleine \LaTeX{} Einführung, damit alle am Pflichtenheft arbeiten können.
+
+Außerdem sollten wir uns auf ein Protokoll Format einigen.
+
+\section{Aufgaben bis nächstes Treffen (Samstag)}
+
+Jeder baut einen Prototyp mit Qt, wie er sich unser Programm vorstellt. Damit lernt man es am besten. Am Samstag zeigt jeder, wie weit er gekommen ist (muss nicht vollständig oder fertig sein). Wir sollten dann auch entscheiden ob wir mit Qt-Widgets oder QML/Qt-Quick arbeiten wollen.
+
+Jeder denkt über die besprochenen Ideen nach. Am Samstag werden wir die Features festlegen, die wir sicher implementieren werden und die UI grob skizzieren.
+
+Felix:
+\begin{itemize}
+	\item Recherche UML Tools
+	\item github einrichten
+\end{itemize}
+
+Lukas:
+\begin{itemize}
+	\item UML Funktionen von Visual Studio ausprobieren
+	\item Recherche, wie sich Nodes in Qt realisieren lassen könnten
+\end{itemize}
+
+Daniel:
+\begin{itemize}
+	\item Probieren, was das online UML Tool kann (mehrere Benutzer, Codegenerierung)
+\end{itemize}
+
+\end{document}
