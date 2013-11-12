@@ -141,10 +141,31 @@ Der Inspektorknoten greift Testdaten während der Berechnung ab und speichert di
 
 \end{speclist}
 
-\subsection{Analyse der Testdaten}
+\subsection{Testdaten}
 
 \begin{speclist}[F]
 \setcounter{specnum}{31010}
+
+\spec Testdaten \\
+Nach der Berechnung für die Analyse benötigte Daten sind die Testdaten. Dies sind:
+\begin{itemize}
+	\item Rechenzeit pro Knoten
+	\item Zahlenreihen an Eingängen von Inspektorknoten
+	\item Bilderreihen an Eingängen von Inspektorknoten
+\end{itemize}
+
+\spec Zahlenreihe \\
+Liste der Länge des Testprojektes in Bildern mit einem Zahlenwert pro Zeiteinheit.
+
+\spec Bilderreihe \\
+Liste der Länge des Testprojektes in Bildern mit einem Bild pro Zeiteinheit.
+
+\end{speclist}
+
+\subsection{Analyse der Testdaten}
+
+\begin{speclist}[F]
+\setcounter{specnum}{41010}
 
 \spec Dialog für Inspektorknoten \\
 Nach einer Berechnung kann ein Dialog zu einem Inspektorknoten geöffnet werden. Hier werden die aufgezeichneten Datenreihen visualisiert und können analysiert werden.
@@ -201,7 +222,7 @@ Die eingegangenen Bilderreihen sollen als Video abspielbar sein.
 \subsection{Benutzeroberfläche}
 
 \begin{speclist}[F]
-\setcounter{specnum}{41010}
+\setcounter{specnum}{51010}
 
 \spec Graphübersicht \\
 Der Benutzer sieht eine grafische Übersicht des Graphen. Es werden Knoten, sowie deren Verbindungen angezeigt.
