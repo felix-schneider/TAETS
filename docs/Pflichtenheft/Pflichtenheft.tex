@@ -1,0 +1,53 @@
+\documentclass[a4paper]{article}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ae}
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+
+\newcounter{specnum}
+\newenvironment{speclist}[1][]{
+	\begin{description}
+	\newcommand{\spec}{\item[/#1\arabic{specnum}/] \addtocounter{specnum}{10}}
+	\newcommand{\optspec}{\item[{[opt]} /#1\arabic{specnum}/] \addtocounter{specnum}{10}}
+}{
+	\end{description}
+}
+
+\begin{document}
+
+\input{Produktuebersicht}
+
+\input{Zielbestimmung} %Daniel
+
+\input{Produkteinsatz} %Jonas
+
+\input{Produktumgebung} %Jonas
+
+\input{Funktionale_Anforderungen} %Lukas
+
+\input{Produktdaten} %David
+
+\input{Produktleistungen} %Daniel
+
+\input{Nicht-Funktionale_Anforderungen} %Felix
+
+\input{Qualitaetsanforderungen}
+
+\input{Globale_Testfaelle_und_Testszenarien}
+
+\input{Systemmodelle}
+
+\input{Grafische_Benutzeroberflaeche} %Felix
+
+\input{Spezielle_Anforderungen_an_die_Entwicklungsumgebung} %David
+
+\input{Zeit-_und_Ressourcenplanung}
+
+\input{Ergaenzungen}
+
+\input{Glossar}
+
+\end{document}

@@ -1,0 +1,5 @@
+*.[oa]
+*~
+*.aux
+*.log
+*.synctex.gz
