@@ -14,7 +14,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_actionInspect_triggered()
 {
     InspectorWindow *wnd = new InspectorWindow();
     wnd->show();

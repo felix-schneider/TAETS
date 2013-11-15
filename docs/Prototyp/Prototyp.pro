@@ -21,3 +21,6 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui \
     inspectorwindow.ui
+
+RESOURCES += \
+    Icon.qrc

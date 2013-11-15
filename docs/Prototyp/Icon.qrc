@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>images/application-run.png</file>
+        <file>images/edit-find.png</file>
+    </qresource>
+</RCC>
