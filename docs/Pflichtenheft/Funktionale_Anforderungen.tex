@@ -5,51 +5,50 @@
 \begin{speclist}[F]
 \setcounter{specnum}{11010}
 
+\spec Testlauf \\
+ 
+
 \spec Graph-basierter Entwurf \\
 Der Benutzer soll einen Testlauf durch einen azyklischen Graphen definieren können. Er verbindet dafür mehrere Knoten miteinander.
 
 \spec Knoten \\
-Ein Knoten ist ein kleiner atomarer Prozessschritt, der Eingaben verrechnet und Ausgabe produziert. Ein Knoten hat einen oder mehrere Ein- bzw. Ausgabeschnittstellen.
+Ein Knoten ist eine kleine Recheneinheit, die Eingabeparameter verrechnet und Ausgabe produziert. Ein Knoten hat einen oder mehrere Ein- bzw. Ausgabestecker.
 
-\spec Knotenschnittstelle \\
-Eine Knotenschnittstelle ist der Teil des Knotens, der Daten annimmt bzw. Daten ausgibt. Knotenschnittstellen haben einen festen Typ.
+\spec Graphstecker \\
+Ein Graphstecker ist der Teil der Schnittstelle eines Knoten, die Daten aufnimmt bzw. Daten ausgibt. Graphstecker haben einen festen Typ.
 
-\spec Typen von Knotenschnittstellen
+\spec Typen von Graphsteckern
 \begin{itemize}
 	\item Fließkommazahl
 	\item YUV-Bild
 \end{itemize}
 
-\spec Verbindung zwischen Knoten \\
-Knotenschnittstellen können miteinander verbunden werden. Eine Verbindung kann nur zwischen Steckern gleichen Typs stattfinden.
+\spec Verbindung zwischen Graphsteckern \\
+Graphstecker können miteinander verbunden werden. Eine Verbindung kann nur zwischen Steckern gleichen Typs stattfinden.
 
 \end{speclist}
 
 \subsection{Knoten des Graphen}
 
 \subsubsection{Eingabeknoten}
-Eingabeknoten sind entweder Video- bzw. Bilddateien oder Generatoren. Als Bildgeneratoren nehmen sie Fließkommazahlen entgegen.
+Eingabeknoten haben nur Zahlen als Eingabestecker und Bilder als Ausgabestecker.
 
 \begin{speclist}[F]
 \setcounter{specnum}{21010}
 
 \spec YUV-Video Streams \\
-Es können unkomprimierte YUV-Video Streams gelesen werden. Der Start-Frame ("`Offset"') und die Anzahl der ausgelesenen Frames ("`Länge"') sind statisch (pro Testdurchlauf, also keine Eingabestecker) veränderbar. Die Auflösung muss beim Einlesen gesetzt werden.
+Es können unkomprimierte YUV-Video Streams gelesen werden. Der Start-Frame ("`Offset"') und die Anzahl der ausgelesenen Frames ("`Länge"') sind statisch (pro Testdurchlauf, also keine Eingabestecker) veränderbar.
 
 \spec Generatoren \\
-Es können RGB-Stream prozedual generiert werden. Dazu stehen mehrere Algorithmen zur Verfügung:
+Es können YUV-Bilder prozedual generiert werden. Dazu stehen mehrere Algorithmen zur Verfügung:
 \begin{itemize}
 	\item Einfarbig
 	\item Rauschen
-	\item Farbverlauf
 \end{itemize}
 Die Eingabeparameter der Generatoren können durch den Graph variiert werden.
 
-\spec Einlesen von verbreiteten Bildformaten \\
-Es können jpeg sowie png Dateien eingelesen werden.
-
 \optspec Einlesen von verbreiteten Videoformaten \\
-Es können weit verbreitete Videoformate, wie MPEG oder H.264 eingelesen werden.
+Es können weit verbreitete Videoformate, wie MPEG oder H.264 eingelesen werden. Auch hier können der Offset und die Länge variiert werden.
 
 \optspec Einlesen von Videos mit anderer Framerate \\
 Es können auch Videos mit anderen Framerates als der des Graphen gelesen werden. Diese werden vor der Ausgabe umgerechnet.
@@ -57,7 +56,7 @@ Es können auch Videos mit anderen Framerates als der des Graphen gelesen werden
 \end{speclist}
 
 \subsubsection{Modifikatoren}
-Modifikatoren verändern den Stream Bild für Bild.
+Modifikatoren verändern Bilder. Sie machen Vor- bzw. Nachberechnungen der Testdaten.
 
 \begin{speclist}[F]
 \setcounter{specnum}{22010}
@@ -104,8 +103,8 @@ Folgende einfache Vergrößerungsalgorithmen stehen zur Verfügung:
 \optspec Resampling \\
 Komplexer Vergrößerungsalgorithms mit besseren Ergebnissen.
 
-\optspec Zeitsabhänige Zahlen \\
-Knoten, die Zahlenwerte generieren, welche sich im Laufe der Videozeit ändern. Folgende Methoden stehen zur Verfügung:
+\optspec Zeit-Variierte Zahlen \\
+Knoten, der Zahlenwerte generiert, die sich im Laufe der Videozeit ändern. Folgende Methoden stehen zur verfügung:
 \begin{itemize}
 	\item Linear
 	\item Mathematische Funktionen (sinus, log, ...)
@@ -127,6 +126,7 @@ Der Encoderknoten encodiert das eingehende Bild und gibt eine codierte Version a
 \optspec Metadaten während des Encodings \\
 Der Encoderknoten macht zusätzliche Ausgaben, die Metadaten während des Encodingprozesses darstellen. Diese sind:
 \begin{itemize}
+	\item Rechenzeit pro Frame
 	\item Bitrate
 	\item Codierungsmethoden der Blöcke
 \end{itemize}
@@ -141,9 +141,6 @@ Es steht ein Ausgabeknoten zur Verfügung, der "`Inspektor"'.
 
 \spec Inspektor \\
 Der Inspektorknoten greift Testdaten während der Berechnung ab und speichert diese für die spätere Auswertung.
-
-\spec Modularer Aufbau des Inspektors \\
-Der Inspektor kann die Testdaten unabhänig von einander anzeigen.
 
 \end{speclist}
 
@@ -161,10 +158,10 @@ Nach der Berechnung für die Analyse benötigte Daten sind die Testdaten. Dies s
 \end{itemize}
 
 \spec Zahlenreihe \\
-Liste der Länge des Testprojektes in Bildern mit einem Zahlenwert pro Frame.
+Liste der Länge des Testprojektes in Bildern mit einem Zahlenwert pro Zeiteinheit.
 
 \spec Bilderreihe \\
-Liste der Länge des Testprojektes in Bildern mit einem Bild pro Frame.
+Liste der Länge des Testprojektes in Bildern mit einem Bild pro Zeiteinheit.
 
 \end{speclist}
 
@@ -189,7 +186,7 @@ Einzelne berechnete Bilder können angezeigt werden.
 Zu angezeigten Bildern können zusätzliche Informationen dargestellt werden:
 \begin{itemize}
 	\item Histogram
-	\item Farbhistogram
+	\item Farbraum
 \end{itemize}
 
 \spec Vergleich von Bildern \\
@@ -198,8 +195,9 @@ Wenn der Inspektor mehrere Bilderreihen aufgenommen hat, sollen je zwei miteinan
 	\item "`Side-by-Side"' Anzeige
 	\item "`Scroll"'-Vergleich
 	\item Differenzbild
-	\item PSNR-Diagram
-	\item Überlagerung Farb-/Histogramme
+	\item PSNR-Wert
+	\item Überlagerung Histogramme
+	\item Überlagerung Farbräume
 \end{itemize}
 
 \spec Visualisierung von Bildvergleichen \\
@@ -239,7 +237,7 @@ Der Benutzer kann neue Knoten hinzufügen.
 Der Benutzer kann existierende Knoten entfernen. Abhängende Verbindungen werden auch entfernt.
 
 \spec Knoten verbinden \\
-Der Benutzer kann Knoten verbinden. Es wird ein Fehler angezeigt, wenn die Typen der Stecker nicht übereinstimmen. Zusätzlich wird der Graph auf Zyklen überprüft.
+Der Benutzer kann Knoten verbinden. Es wird ein Fehler angezeigt, wenn die Typen der Stecker nicht übereinstimmen.
 
 \spec Knoten einstellen \\
 Jeder Knoten hat spezielle Einstellungen. Diese können vom Benutzer verändert werden.
@@ -264,5 +262,8 @@ Beim Berechnen des Testlaufs wird für jeden Knoten aufgezeichnet, wie lange ins
 
 \optspec Parallele Berechnung \\
 Die Berechnung ist mehrfädig für maximale Geschwindigkeit.
+
+\optspec Hardwaregestützte Berechnungen \\
+Ausgewählte Knoten werden auf spezialisierter Hardware (Grafikkarte) berechnet.
 
 \end{speclist}

@@ -5,7 +5,7 @@
 \begin{itemize}
 	\item Eingabe: 
 	\begin{itemize}
-		\item Einlesen von .yuv Dateien
+		\item Einlesen von .yuv-Dateien
 		\item Verwenden einer Farbe, eines Bildes
 		\item generiertes Noise
 	\end{itemize}
@@ -16,15 +16,15 @@
 		\item Weich- und Scharfzeichner
 		\item Helligkeit und Kontrast
 	\end{itemize}
-	\item Bewerten:
+	\item Darstellen:
 	\begin{itemize}
 		\item Verwenden von Inspektoren (Knoten)
 		\item Generierung eines Zeitdiagramms
 		\item Messung der Rechenzeit
-		\item Berechnen des PSNR
-		\item Berechnung des Histograms / Farbraums einzelner Frames des Videos
+		\item Darstellung des PSNR
+		\item Anzeigen des (Farb-)Histograms einzelner Frames des Videos
 	\end{itemize}
-	\item Ausgabe: Das ausgegebene Video kann gespeichert werden
+	\item Ausgabe: Das modifizierte Video kann abgespielt und gespeichert werden
 \end{itemize}
 
 \subsection{Sollkriterien}
@@ -32,14 +32,9 @@
 \begin{itemize}
 	\item Unterstützung anderer Kodierer
 	\item Integration mit Matlab
-	\item Metadaten auslesen (sowohl "Standart"Metadaten, wie auch welche, die nur von manchen ausgegeben werden)
+	\item Metadaten auslesen
 	\item Weitere Modifikatoren: Skalieren des Videos, Resampling
-	\item Implementierung von Zeitverschiebungsparametern
-\end{itemize}
-
-\subsection{Kannkriterien}
-
-\begin{itemize}
+	\item Implementierung eines Zeitstrahls mit Bereichswahl
 	\item Unterstützung unterschiedlicher Framerates 
 	\item Implementierung von Multithreading
 \end{itemize}
@@ -47,7 +42,7 @@
 \subsection{Abgrenzungskriterien}
 
 \begin{itemize}
-	\item Es ist nur für erweiterte Benutzer gedacht
+	\item Das Programm ist nur für fortgeschrittene Benutzer gedacht
 	\item Audiospur des Videos ist nicht abspielbar
 	\item Hardwarebeschleunigung (z.B. CUDA) wird nicht unterstützt
 \end{itemize}
