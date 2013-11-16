@@ -14,13 +14,28 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    inspectorwindow.cpp
+    inspectorwindow.cpp \
+    frameviewer.cpp \
+    histogramviewer.cpp \
+    diagramviewer.cpp \
+    videocontrolsviewer.cpp \
+    valuetableviewer.cpp
 
 HEADERS  += mainwindow.h \
-    inspectorwindow.h
+    inspectorwindow.h \
+    frameviewer.h \
+    histogramviewer.h \
+    diagramviewer.h \
+    videocontrolsviewer.h \
+    valuetableviewer.h
 
 FORMS    += mainwindow.ui \
-    inspectorwindow.ui
+    inspectorwindow.ui \
+    frameviewer.ui \
+    histogramviewer.ui \
+    diagramviewer.ui \
+    videocontrolsviewer.ui \
+    valuetableviewer.ui
 
 RESOURCES += \
     Icon.qrc
