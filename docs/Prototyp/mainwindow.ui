@@ -6,21 +6,227 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>1104</width>
+    <height>692</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="leftMargin">
+     <number>4</number>
+    </property>
+    <property name="topMargin">
+     <number>4</number>
+    </property>
+    <property name="rightMargin">
+     <number>4</number>
+    </property>
+    <property name="bottomMargin">
+     <number>4</number>
+    </property>
+    <item>
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QFrame" name="frame">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::WinPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Sunken</enum>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QFrame" name="frame_2">
+          <property name="minimumSize">
+           <size>
+            <width>600</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-image: url(:/icons/images/nodes.png);
+background-repeat: repeat;</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QFrame" name="frame_3">
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>4</number>
+        </property>
+        <property name="rightMargin">
+         <number>4</number>
+        </property>
+        <property name="bottomMargin">
+         <number>4</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>Kommandozeile:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLineEdit" name="lineEdit">
+            <property name="font">
+             <font>
+              <family>Lucida Sans Unicode</family>
+             </font>
+            </property>
+            <property name="text">
+             <string>ffmpeg -i input.avi -b:v 64k -bufsize 64k output.avi</string>
+            </property>
+            <property name="cursorPosition">
+             <number>52</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>Zurück setzen</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox">
+          <property name="title">
+           <string>Parameter</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>Bitrate</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="horizontalSlider">
+             <property name="maximum">
+              <number>1024</number>
+             </property>
+             <property name="value">
+              <number>64</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="tickPosition">
+              <enum>QSlider::TicksBelow</enum>
+             </property>
+             <property name="tickInterval">
+              <number>64</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>Buffergröße</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spinBox">
+             <property name="suffix">
+              <string>k</string>
+             </property>
+             <property name="maximum">
+              <number>2048</number>
+             </property>
+             <property name="value">
+              <number>64</number>
+             </property>
+            </widget>
+           </item>
+           <item alignment="Qt::AlignHCenter">
+            <widget class="QLabel" name="label_3">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="text">
+              <string>[hier sind potenziell weitere Kontrollen]</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
-     <height>18</height>
+     <width>1104</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>
@@ -39,12 +245,22 @@
    </attribute>
    <addaction name="actionPlay"/>
    <addaction name="actionInspect"/>
+   <addaction name="separator"/>
+   <addaction name="actionOpen"/>
+   <addaction name="actionSave"/>
+   <addaction name="actionCache"/>
+   <addaction name="separator"/>
+   <addaction name="actionManager"/>
+   <addaction name="actionSyncPreview"/>
+   <addaction name="separator"/>
+   <addaction name="actionRedo"/>
+   <addaction name="actionUndo"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionPlay">
    <property name="icon">
     <iconset>
-     <activeon>:/icons/images/application-run.png</activeon>
+     <activeon>:/icons/images/arrow-right-3.png</activeon>
     </iconset>
    </property>
    <property name="text">
@@ -56,9 +272,9 @@
   </action>
   <action name="actionInspect">
    <property name="icon">
-    <iconset>
-     <activeon>:/icons/images/edit-find.png</activeon>
-    </iconset>
+    <iconset resource="Icon.qrc">
+     <normaloff>:/icons/images/system-search-3.png</normaloff>
+     <activeon>:/icons/images/edit-find.png</activeon>:/icons/images/system-search-3.png</iconset>
    </property>
    <property name="text">
     <string>Inspect</string>
@@ -67,8 +283,100 @@
     <string>Inspizieren</string>
    </property>
   </action>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset resource="Icon.qrc">
+     <normaloff>:/icons/images/document-open-folder.png</normaloff>:/icons/images/document-open-folder.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="toolTip">
+    <string>Projekt Öffnen</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset resource="Icon.qrc">
+     <normaloff>:/icons/images/document-save-5.png</normaloff>:/icons/images/document-save-5.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="toolTip">
+    <string>Projekt speichern</string>
+   </property>
+  </action>
+  <action name="actionCache">
+   <property name="icon">
+    <iconset>
+     <activeon>:/icons/images/drive-harddisk-8.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Cache</string>
+   </property>
+   <property name="toolTip">
+    <string>Videos ablegen...</string>
+   </property>
+  </action>
+  <action name="actionManager">
+   <property name="icon">
+    <iconset>
+     <activeon>:/icons/images/address-book-new-2.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Manager</string>
+   </property>
+   <property name="toolTip">
+    <string>Vorlagen-Manager</string>
+   </property>
+  </action>
+  <action name="actionSyncPreview">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <activeon>:/icons/images/system-lock-screen-2.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>SyncPreview</string>
+   </property>
+   <property name="toolTip">
+    <string>Vorschauen synchronisieren</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="icon">
+    <iconset resource="Icon.qrc">
+     <normaloff>:/icons/images/edit-undo-4.png</normaloff>:/icons/images/edit-undo-4.png</iconset>
+   </property>
+   <property name="text">
+    <string>Undo</string>
+   </property>
+   <property name="toolTip">
+    <string>Rückgängig</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="icon">
+    <iconset resource="Icon.qrc">
+     <normaloff>:/icons/images/edit-redo-4.png</normaloff>:/icons/images/edit-redo-4.png</iconset>
+   </property>
+   <property name="text">
+    <string>Redo</string>
+   </property>
+   <property name="toolTip">
+    <string>Wiederholen</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="Icon.qrc"/>
+ </resources>
  <connections/>
 </ui>

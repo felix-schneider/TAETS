@@ -1,6 +1,16 @@
 <RCC>
     <qresource prefix="/icons">
-        <file>images/application-run.png</file>
-        <file>images/edit-find.png</file>
+        <file>images/nodes.png</file>
+        <file>images/address-book-new-2.png</file>
+        <file>images/arrow-right-3.png</file>
+        <file>images/document-open-folder.png</file>
+        <file>images/document-save-5.png</file>
+        <file>images/document-save-as-4.png</file>
+        <file>images/drive-harddisk-8.png</file>
+        <file>images/edit-find-9.png</file>
+        <file>images/edit-undo-4.png</file>
+        <file>images/system-lock-screen-2.png</file>
+        <file>images/system-search-3.png</file>
+        <file>images/edit-redo-4.png</file>
     </qresource>
 </RCC>
