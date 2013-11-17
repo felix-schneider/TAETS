@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>TAETS</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -120,7 +120,7 @@ background-repeat: repeat;</string>
              <string>ffmpeg -i input.avi -b:v 64k -bufsize 64k output.avi</string>
             </property>
             <property name="cursorPosition">
-             <number>52</number>
+             <number>0</number>
             </property>
            </widget>
           </item>
