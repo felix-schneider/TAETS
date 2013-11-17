@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     histogramviewer.cpp \
     diagramviewer.cpp \
     videocontrolsviewer.cpp \
-    valuetableviewer.cpp
+    valuetableviewer.cpp \
+    templatemanager.cpp
 
 HEADERS  += mainwindow.h \
     inspectorwindow.h \
@@ -27,7 +28,8 @@ HEADERS  += mainwindow.h \
     histogramviewer.h \
     diagramviewer.h \
     videocontrolsviewer.h \
-    valuetableviewer.h
+    valuetableviewer.h \
+    templatemanager.h
 
 FORMS    += mainwindow.ui \
     inspectorwindow.ui \
@@ -35,7 +37,8 @@ FORMS    += mainwindow.ui \
     histogramviewer.ui \
     diagramviewer.ui \
     videocontrolsviewer.ui \
-    valuetableviewer.ui
+    valuetableviewer.ui \
+    templatemanager.ui
 
 RESOURCES += \
     Icon.qrc
