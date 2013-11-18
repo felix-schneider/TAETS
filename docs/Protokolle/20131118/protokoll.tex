@@ -1,0 +1,121 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[parfill]{parskip}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\textbf{Nummer:} 7
+
+\textbf{Zeit:} 18.11.13, 15:40 - 17:20
+
+\textbf{Anwesend:} Lukas (Protokollant), Felix, Daniel, David, Jonas
+
+\textbf{Nächstes Treffen:} 20.11.13, Zeit muss noch ausgemacht werden.
+
+\section{Tops}
+\begin{enumerate}
+	\item Logo
+	\item github
+	\item Pflichtenheft
+	\item GUI-Prototyp
+	\item Sonstiges
+\end{enumerate}
+
+\section{Logo}
+
+Wir haben uns auf das "swirl.png" Logo geeinigt. Daniel macht es noch besser (mehr Kontrast, kein schwarzer Hintergrund mehr) und passt es auch für Icon-Größe an.
+
+\section{Github}
+
+Github hat Probleme bereitet. Wir haben beschlossen, doch auf SVN umzusteigen, da das besser für Continous Integration geeignet ist. Dafür nutzen wir den Server, der uns am Anfang des Projektes zugewiesen wurde. Lukas migriert die bisherigen Daten und ist in Zukunft Ansprechpartner bei Problemen mit der Versionskontrolle. Lukas schickt eine Mail mit einer kleinen SVN Einführung rum.
+
+\section{Pflichtenheft}
+
+Die Versionskontrolle hat die funktionalen Anforderungen auf die alte Version zurückgesetzt. Daniel überprüft, ob die Anmerkungen von Lukas auch auf die aktuelle Version zutreffen. Undo und Redo werden von den funktionalen Anforderungen gestrichen (Daniel). Folgende Teile müssen noch fertiggestellt bzw. überarbeitet werden:
+\begin{itemize}
+	\item Produkteinsatz (Jonas)
+	\item Produktdaten (Daniel)
+	\item Nicht-Funktionale Anforderungen (Felix)
+	\item Spezielle Anforderungen Entwicklungsumgebung (David, Test-Frameworks sind Qt Unit Tests und gcov)
+	\item Anwendungsfalldiagramme (Jonas) \\ Use Cases:
+	\begin{itemize}
+		\item Video laden
+		\item Graph bauen
+		\item Graph berechnen
+		\item Ergebnisse analysieren
+	\end{itemize}
+	\item Globale Testfälle (David)
+\end{itemize}
+
+Alle Pflichtenheftaufgaben sind bis morgen (18.11.2013) 19:00 Uhr fertigzustellen! (siehe auch Aufgabenverteilung).
+
+\section{GUI-Prorotyp}
+
+Felix und Lukas haben einen GUI-Prototyp gebaut und vorgestellt. Folgende Dinge sind noch zu verbessern:
+\begin{itemize}
+	\item Inspektor Fenster (Lukas)
+	\begin{itemize}
+		\item Video Controls für Bildvorschau
+		\item Master Video Controls
+		\item Histogramme zeigen Master Video Frame an
+		\item Splitter, um Einstellungen zu verbergen
+		\item Grafiken für Platzhalter einsetzen (Felix)
+	\end{itemize}
+	
+	\item Hauptfenster (Felix)
+	\begin{itemize}
+		\item Nodes
+		\item Neues Projekt Button
+	\end{itemize}
+\end{itemize}
+
+\section{Sonstiges}
+
+Irgendwie haben nicht alle die Email von Sebastian bekommen wegen YUV-Dateien und so. Ist der Verteiler kaputt? Lukas schickt die Mail nochmal rum.
+
+Wir brauchen jetzt endlich mal die Library vom Video Encoder!!!
+
+\section{Aufgaben bis Dienstag 19.11.13, 19:00 Uhr}
+
+Die Deadline ist diesmal echt super wichtig!!!
+
+\begin{itemize}
+	\item Lukas
+	\begin{itemize}
+		\item Migrieren von github, SVN Einführung versenden
+		\item Verbessern des Inspektor Fensters (bis auf Diagramme)
+		\item Mail von Sebastian rumschicken
+	\end{itemize}
+	
+	\item Felix
+	\begin{itemize}
+		\item Überarbeiten der Nicht-Funktionalen Anforderungen
+		\item Weiterarbeiten am Hauptfenster des Prototyp (Nodes)
+		\item Platzhaltergrafiken erstellen
+	\end{itemize}
+	
+	\item Daniel
+	\begin{itemize}
+		\item Logo schöner machen und für Icon anpassen.
+		\item Überprüfung funktionaler Anforderungen
+		\item Entfernen von Undo, Redo
+		\item Fertigstellen der Produktdaten (wichtig: XML-Speicherformat und Layout nicht vergessen!)
+	\end{itemize}
+	
+	\item David
+	\begin{itemize}
+		\item Schreiben Spezieller Anforderungen an die Entwicklungsumgebung
+		\item Schreiben Globale Testfälle
+	\end{itemize}
+	
+	\item Jonas
+	\begin{itemize}
+		\item Überarbeiten von Produkteinsatz
+		\item Schreiben Anwendungsfalldiagramme
+	\end{itemize}
+\end{itemize}
+\end{document}
